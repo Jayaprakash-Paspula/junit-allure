@@ -1,20 +1,22 @@
 package com.example;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.Test;
 
-public class AppTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@Epic("Calculator")
+@Feature("Addition")
+class AppTest {
 
     @Test
-    @Description("Verify that addition works correctly")
-    public void testAddition() {
-        assertEquals(5, App.add(2, 3), "2 + 3 should equal 5");
-    }
-
-    @Test
-    @Description("Check failure for demo")
-    public void testFailure() {
-        assertEquals(10, App.add(2, 3), "Intentional failure to test report");
+    @Description("Verify simple integer addition")
+    @Severity(SeverityLevel.CRITICAL)
+    void addsTwoNumbers() {
+        assertEquals(5, App.add(2, 3));
     }
 }
